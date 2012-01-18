@@ -1,0 +1,17 @@
+#!/bin/zsh
+# Quick Compile
+# C++ component
+run_when_done=true
+cpp_compiler="g++"
+cpp_flags="-Wall -Wextra -pendantic"
+
+if [ $# -eq 0 ]; then
+	echo "Usage: $0 Object.cpp"
+else
+	file=$1
+	file_basename=$(basename $file .cpp)
+	$cpp_compiler $=cpp_flags $file -o $file_basename
+	if [ $? -eq 0 ] && [ $run_when_done ]; then
+		./$file_basename
+	fi
+fi

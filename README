@@ -1,0 +1,5 @@
+Quick Compile Scripts
+
+This is a collection of zsh scripts to handle the "qc" command
+
+"qc" (quick compile) will compile (and run by default) C++ and Java files

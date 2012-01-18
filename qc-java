@@ -1,0 +1,16 @@
+#!/bin/zsh
+# Quick Compile
+# Java component
+run_when_done=true
+javac_flags=""
+
+if [ $# -eq 0 ]; then
+	echo "Usage: $0 Object.java"
+else
+	file=$1
+	javac $javac_flags $file
+	if [ $? -eq 0 ] && [ $run_when_done ]; then
+		file_basename=$(basename $file .java)
+		java $file_basename
+	fi
+fi
